@@ -1,0 +1,17 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.quiz {
+  color: black;
+}
+.answer {
+  color: black;
+}
+.question {
+  color: black;
+}
+.results {
+  color: black;
+}
