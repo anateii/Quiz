@@ -26,6 +26,9 @@ const Results = ({ data, score }) => {
     scoreRange.includes(score)
   )?.message;
 
+  //.find() è un metodo che restituisce il primo elemento all'interno di un array che
+  // soddisfa la funzione callback.
+
   return (
     <div className="results">
       <h2>

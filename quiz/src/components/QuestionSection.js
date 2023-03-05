@@ -1,9 +1,6 @@
 import React from "react";
 
 const QuestionSection = ({ data, currentQuestion, handleClick }) => {
-  // console.log("This is current question", currentQuestion);
-  //console.log("This is data current Index", data[currentQuestion].correct);
-
   return (
     <>
       <div>
