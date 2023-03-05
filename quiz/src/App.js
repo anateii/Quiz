@@ -7,39 +7,41 @@ import "./style/index.css";
 const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [showResults, setShowResults] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleClick = (index) => {
     const correct = db[currentQuestion].correct;
 
-    if (index === correct) {
-      console.log("right", index);
+    if (correct === index) {
+      console.log("correct");
       setScore(score + 1);
-    } else console.log("wrong");
+    } else {
+      console.log("wrong");
+    }
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < db.length) {
       setCurrentQuestion(nextQuestion);
-    } else {
-      setShowResults(true);
-    }
+    } else setShow(!show);
   };
 
   return (
     <div className="App">
       <>
         <h2>Test: come si fa la cacio e pepe?</h2>
-        <h3>Rispondi alle domande</h3>
-        {showResults ? (
+        {show ? (
           <Results data={db} score={score} />
         ) : (
-          <div className="quiz">
-            <QuestionSection
-              data={db}
-              currentQuestion={currentQuestion}
-              handleClick={handleClick}
-            />
-          </div>
+          <>
+            <h3>Rispondi alle domande</h3>
+            <div className="quiz">
+              <QuestionSection
+                data={db}
+                currentQuestion={currentQuestion}
+                handleClick={handleClick}
+              />
+            </div>
+          </>
         )}
       </>
     </div>
